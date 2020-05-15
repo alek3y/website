@@ -1,0 +1,14 @@
+{
+	"PARENT_URL": "https://raw.githubusercontent.com/AleK3y/clips/master/gifs/",
+
+	"DELAY": 30000,
+
+	"ITEMS": [
+		"cherry_trees.gif",
+		"houston_city.gif",
+		"night_time.gif",
+		"rainy_road.gif",
+		"rainy_train.gif",
+		"russian_fox.gif",
+	]
+}

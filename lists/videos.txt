@@ -1,0 +1,33 @@
+{
+	"PARENT_URL": "https://raw.githubusercontent.com/AleK3y/clips/master/videos/",
+
+	"DELAY": 30000,
+
+	"ITEMS": [
+
+		// Terror in Resonance
+		"hacking1.mp4",
+		"hacking2.mp4",
+		"motorbike1.mp4",
+		"motorbike2.mp4",
+		"motorbike3.mp4",
+		"raining_nature.mp4",
+		"wheel.mp4",
+
+		// Paprika
+		"spinning_ice.mp4",
+
+		// Hyouka
+		"doing_homeworks.mp4",
+		"horror_piano_stylized.mp4",
+		"raining.mp4",
+
+		// Other
+		"bouncing.mp4",
+		"chilling_bedroom.mp4",
+		"lake_winter.mp4",
+		"raining_park.mp4",
+		"rolling_bored.mp4",
+		"roof_walking.mp4",
+	]
+}

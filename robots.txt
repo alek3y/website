@@ -1,0 +1,3 @@
+# Whoops, you found me!
+User-agent: *
+Disallow: /secret

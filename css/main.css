@@ -1,0 +1,126 @@
+/**
+ Fonts
+*/
+
+@font-face {
+	font-family: Comfortaa;
+	src: url("/fonts/Comfortaa-Regular.ttf");
+}
+
+@font-face {
+	font-family: Noto Mono;
+	src: url("/fonts/NotoMono-Regular.ttf");
+}
+
+/**
+ Variables
+*/
+
+html {
+	--loading-background: #111;
+	--loading-color: #222;
+	--loading-font: Noto Mono;
+	--loading-font-size: 3.5em;
+	--play-button-size: 100px;
+	--volume-slider-background: #fff;
+	--volume-show-transition: ease 0.25s;
+}
+
+/**
+ Content rules
+*/
+
+/* Common */
+
+* {
+	outline: none;
+	-webkit-tap-highlight-color: transparent;
+}
+
+/* Loading text */
+
+body {
+	background-color: var(--loading-background);
+}
+
+.bg-loading_text {
+	position: fixed;
+	top: 50px;
+	left: 55px;
+	font-family: var(--loading-font);
+	font-size: var(--loading-font-size);
+	color: var(--loading-color);
+	white-space: nowrap;
+}
+
+.bg-video, .bg-loading_text {
+	z-index: -1;
+}
+
+/* Header and footer */
+
+.content {
+	display: flex;
+	flex-flow: column;
+	justify-content: space-between;
+	width: 100%;
+	height: 100%;
+}
+
+.footer {
+	display: flex;
+	justify-content: space-between;
+}
+
+.header {
+	display: flex;
+	justify-content: flex-end;
+}
+
+.player-controls {
+	display: flex;
+}
+
+.play-button {
+	width: var(--play-button-size);
+	cursor: pointer;
+}
+
+/* Sliders and volume slider */
+
+input[type="range"],
+input[type="range"]::-webkit-slider-thumb {
+	appearance: none;
+	-moz-appearance: none;
+	-webkit-appearance: none;
+	background: var(--volume-slider-background);
+	cursor: pointer;
+}
+
+input[type="range"] {
+	height: 12px;
+	border-radius: 10px;
+}
+
+input[type="range"]::-webkit-slider-thumb {
+	width: 20px;
+	height: 20px;
+	border-radius: 50%;
+}
+
+.volume-slider-wrapper {
+	height: 100%;
+	display: flex;
+	align-items: center;
+}
+
+.volume-slider {
+	width: 100px;
+	opacity: 0;
+	transition: var(--volume-show-transition);
+}
+
+.volume-slider-wrapper:hover > .volume-slider {
+	opacity: 1;
+	transition: var(--volume-show-transition);
+}

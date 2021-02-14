@@ -1,0 +1,56 @@
+<html>
+	<head>
+		<title>ローファイ</title>
+		<meta name="description" content="Chill and relax while working on your stuff.">
+
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=0.8, user-scalable=no">
+		<link rel="shortcut icon" type="image/png" href="/assets/favicon.png">
+		<link rel="stylesheet" href="/css/main.css">
+		<script src="https://www.youtube.com/iframe_api"></script>
+		<script src="/js/vue.dev.js"></script>
+		<script src="/js/yt-player.js"></script>
+		<script src="/js/video-bg.js"></script>
+	</head>
+	<body>
+		<div id="root">
+			<youtube-player
+				data-width="0" data-height="0"
+				v-bind:data-video-id="music.video"
+				v-bind:data-play="music.playing"
+				v-bind:data-volume="music.volume"
+			></youtube-player>
+
+			<span class="bg-loading_text">&gt; loading</span>
+			<video-background class="bg-video" v-bind:data-src="background"></video-background>
+
+			<div class="content">
+				<div class="header">
+					placeholder
+				</div>
+				<div class="footer">
+					<div class="player-controls">
+						<img
+							class="play-button"
+							v-bind:src="music.playing === 0 ? '/assets/play.svg' : '/assets/pause.svg'"
+							v-on:click="togglePlaying"
+							v-on:keyup.space="togglePlaying"
+							tabindex="0" autofocus
+						>
+						<div class="volume-slider-wrapper">
+							<input
+								type="range"
+								class="volume-slider"
+								min="0" max="100" step="5"
+								v-model="music.volume"
+								tabindex="-1"
+							>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<script src="/js/init.js"></script>
+	</body>
+</html>

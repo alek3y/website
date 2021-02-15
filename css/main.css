@@ -4,7 +4,7 @@
 
 @font-face {
 	font-family: Comfortaa;
-	src: url("/fonts/Comfortaa-Regular.ttf");
+	src: url("/fonts/Comfortaa-Regular-Mod.ttf");
 }
 
 @font-face {
@@ -17,13 +17,22 @@
 */
 
 html {
+
+	/* These two should end up with the same color */
+	--primary-color: #ebebeb;
+	--play-button-filter: brightness(0.92);
+
+	--shadow: drop-shadow(0px 0px 8px #000);
 	--loading-background: #111;
 	--loading-color: #222;
 	--loading-font: Noto Mono;
 	--loading-font-size: 3.5em;
 	--play-button-size: 100px;
-	--volume-slider-background: #fff;
 	--volume-show-transition: ease 0.25s;
+	--title-font-size: 2.2em;
+	--title-width: 330px;
+	--title-side-margin: 25px;
+	--board-right-offset: 20px;
 }
 
 /**
@@ -37,9 +46,23 @@ html {
 	-webkit-tap-highlight-color: transparent;
 }
 
+html {
+	overflow: hidden;
+}
+
+hr {
+	border: 2px solid var(--primary-color);
+	background-color: var(--primary-color);
+	border-radius: 10px;
+}
+
+.shadow {
+	filter: var(--shadow);
+}
+
 /* Loading text */
 
-body {
+.bg-loading {
 	background-color: var(--loading-background);
 }
 
@@ -51,6 +74,12 @@ body {
 	font-size: var(--loading-font-size);
 	color: var(--loading-color);
 	white-space: nowrap;
+}
+
+@media all and (max-width: 850px) {
+	.bg-loading_text {
+		display: none;
+	}
 }
 
 .bg-video, .bg-loading_text {
@@ -83,6 +112,7 @@ body {
 
 .play-button {
 	width: var(--play-button-size);
+	filter: var(--play-button-filter);
 	cursor: pointer;
 }
 
@@ -93,7 +123,7 @@ input[type="range"]::-webkit-slider-thumb {
 	appearance: none;
 	-moz-appearance: none;
 	-webkit-appearance: none;
-	background: var(--volume-slider-background);
+	background: var(--primary-color);
 	cursor: pointer;
 }
 
@@ -123,4 +153,28 @@ input[type="range"]::-webkit-slider-thumb {
 .volume-slider-wrapper:hover > .volume-slider {
 	opacity: 1;
 	transition: var(--volume-show-transition);
+}
+
+/* Title and links */
+
+.title {
+	margin: var(--title-side-margin) calc(var(--title-side-margin) * 2);
+	font-size: var(--title-font-size);
+	font-family: Comfortaa;
+	color: var(--primary-color);
+	width: var(--title-width);
+	white-space: nowrap;
+	overflow: hidden;
+}
+
+.board {
+	margin-right: var(--board-right-offset);
+}
+
+.links-wrapper {
+	display: flex;
+	flex-flow: column;
+	align-items: flex-end;
+	margin-top: var(--title-side-margin);
+	margin-right: var(--title-side-margin);
 }

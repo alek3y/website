@@ -3,36 +3,54 @@
 		<title>ローファイ</title>
 		<meta name="description" content="Chill and relax while working on your stuff.">
 
-		<meta charset="UTF-8">
+		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, initial-scale=0.8, user-scalable=no">
 		<link rel="shortcut icon" type="image/png" href="/assets/favicon.png">
 		<link rel="stylesheet" href="/css/main.css">
 		<script src="https://www.youtube.com/iframe_api"></script>
 		<script src="/js/vue.dev.js"></script>
+		<script src="/js/vue-timers.js"></script>
+		<link rel="stylesheet" href="/css/vue-typed-js.css">
+		<script src="/js/vue-typed-js.js"></script>
 		<script src="/js/yt-player.js"></script>
 		<script src="/js/video-bg.js"></script>
 	</head>
-	<body>
+	<body class="bg-loading">
 		<div id="root">
 			<youtube-player
 				data-width="0" data-height="0"
-				v-bind:data-video-id="music.video"
-				v-bind:data-play="music.playing"
-				v-bind:data-volume="music.volume"
+				:data-video-id="music.video"
+				:data-play="music.playing"
+				:data-volume="music.volume"
 			></youtube-player>
 
 			<span class="bg-loading_text">&gt; loading</span>
-			<video-background class="bg-video" v-bind:data-src="background"></video-background>
+			<video-background class="bg-video" :data-src="video.currentBackground"></video-background>
 
 			<div class="content">
 				<div class="header">
-					placeholder
+					<div class="board shadow">
+						<vue-typed-js
+							:start-delay="title.startDelay"
+							:back-delay="title.backspaceDelay"
+							:type-speed="title.typeSpeed"
+							:back-speed="title.backspaceSpeed"
+							:smart-backspace="title.smartBackspace"
+							:strings="title.strings"
+						>
+							<h1 class="title"><span class="typing"></span></h1>
+						</vue-typed-js>
+						<hr>
+						<div class="links-wrapper">
+							<span style="font-size: 30px">another text here</span>
+						</div>
+					</div>
 				</div>
 				<div class="footer">
-					<div class="player-controls">
+					<div class="player-controls shadow">
 						<img
 							class="play-button"
-							v-bind:src="music.playing === 0 ? '/assets/play.svg' : '/assets/pause.svg'"
+							:src="music.playing === 0 ? '/assets/play.svg' : '/assets/pause.svg'"
 							v-on:click="togglePlaying"
 							v-on:keyup.space="togglePlaying"
 							tabindex="0" autofocus
@@ -51,6 +69,7 @@
 			</div>
 		</div>
 
+		<script src="/js/lists.js"></script>
 		<script src="/js/init.js"></script>
 	</body>
 </html>

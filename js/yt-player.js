@@ -75,7 +75,7 @@ Vue.component("youtube-player-frame", {
 		}
 	},
 
-	template: `<div v-bind:id="id"></div>`
+	template: `<div :id="id"></div>`
 });
 
 Vue.component("youtube-player", {
@@ -98,7 +98,7 @@ Vue.component("youtube-player", {
 	template: `
 		<youtube-player-frame
 			v-if="api.loaded === 1"
-			v-bind:wrapper="wrapper"
+			:wrapper="wrapper"
 		></youtube-player-frame>
 	`
 });

@@ -47,8 +47,8 @@ Vue.component("video-background", {
 	},
 
 	template: `
-		<video autoplay muted loop v-bind:style="style">
-			<source v-bind:src="source" v-bind:type="dataType">
+		<video autoplay muted loop :style="style">
+			<source :src="source" :type="dataType">
 		</video>
 	`
 });

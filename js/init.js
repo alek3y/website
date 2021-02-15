@@ -33,6 +33,11 @@ let app = new Vue({
 
 	created: function() {
 		this.title.strings = this.title.strings.concat("> " + this.arrayChoice(this.title.binaries));
+
+		let linksStored = window.localStorage.getItem("links");
+		if(linksStored) {
+			this.links = JSON.parse(linksStored);
+		}
 	},
 
 	timers: {
@@ -54,7 +59,6 @@ let app = new Vue({
 
 	watch: {
 		links: {
-			immediate: true,
 			deep: true,
 			handler: function() {
 				for(let i = 0; i < this.links.length; i++) {
@@ -63,6 +67,8 @@ let app = new Vue({
 						this.links.splice(i, 1);		// Remove link when content is empty
 					}
 				}
+
+				window.localStorage.setItem("links", JSON.stringify(this.links));
 			}
 		}
 	},

@@ -16,7 +16,7 @@
 		<script src="/js/video-bg.js"></script>
 	</head>
 	<body class="bg-loading">
-		<div id="root">
+		<div id="root" @click.right.prevent>
 			<youtube-player
 				data-width="0" data-height="0"
 				:data-video-id="music.video"
@@ -41,8 +41,31 @@
 							<h1 class="title"><span class="typing"></span></h1>
 						</vue-typed-js>
 						<hr>
-						<div class="links-wrapper">
-							<span style="font-size: 30px">another text here</span>
+						<div class="links-list-wrapper">
+							<div class="links-list">
+								<div v-for="link in links" class="link-wrapper">
+									<a class="link" v-if="! link.editing" :href="linkGetInfo(link.content).href">
+										{{ linkGetInfo(link.content).text }}
+									</a>
+
+									<input
+										class="link link-input"
+										v-if="link.editing"
+										v-model="link.content"
+										@keyup.enter="link.editing = false"
+									></input>
+
+									<span class="link-edit" @click="link.editing = ! link.editing">
+										<img src="/assets/link-edit.svg">
+									</span>
+								</div>
+
+								<div class="link-wrapper">
+									<span class="link-edit" @click="linkAddEmpty">
+										<img src="/assets/link-add.svg">
+									</span>
+								</div>
+							</div>
 						</div>
 					</div>
 				</div>
@@ -50,9 +73,9 @@
 					<div class="player-controls shadow">
 						<img
 							class="play-button"
-							:src="music.playing === 0 ? '/assets/play.svg' : '/assets/pause.svg'"
-							v-on:click="togglePlaying"
-							v-on:keyup.space="togglePlaying"
+							:src="music.playing === 0 ? '/assets/music-play.svg' : '/assets/music-pause.svg'"
+							@click="playingToggle"
+							@keyup.space="playingToggle"
 							tabindex="0" autofocus
 						>
 						<div class="volume-slider-wrapper">

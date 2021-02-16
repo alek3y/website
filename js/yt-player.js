@@ -23,9 +23,18 @@ Vue.component("youtube-player-frame", {
 			}
 		},
 
+		checkDataMute: function(newState) {
+			if(newState) {
+				this.player.mute();
+			} else {
+				this.player.unMute();
+			}
+		},
+
 		onPlayerReady: function() {
 			this.checkDataPlay(this.watchDataPlay);
 			this.player.setVolume(this.watchDataVolume);
+			this.checkDataMute(this.watchDataMute);
 		}
 	},
 
@@ -67,11 +76,7 @@ Vue.component("youtube-player-frame", {
 			this.player.setVolume(volume);
 		},
 		watchDataMute: function(mute) {
-			if(mute) {
-				this.player.mute();
-			} else {
-				this.player.unMute();
-			}
+			this.checkDataMute(mute);
 		}
 	},
 

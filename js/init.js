@@ -25,7 +25,7 @@ let app = new Vue({
 
 		links: [
 			{
-				content: "Change me!: #href-link-here",
+				content: "Change me!: http://example.com/",
 				editing: false
 			}
 		],

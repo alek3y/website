@@ -54,10 +54,6 @@ html {
 	-webkit-tap-highlight-color: transparent;
 }
 
-html {
-	overflow: hidden;
-}
-
 hr {
 	border: 2px solid var(--primary-color);
 	background-color: var(--primary-color);

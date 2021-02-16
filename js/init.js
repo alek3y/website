@@ -29,6 +29,8 @@ let app = new Vue({
 				editing: false
 			}
 		],
+
+		showInterface: true
 	},
 
 	created: function() {

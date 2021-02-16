@@ -38,10 +38,10 @@
 							:smart-backspace="title.smartBackspace"
 							:strings="title.strings"
 						>
-							<h1 class="title"><span class="typing"></span></h1>
+							<h1 class="title" @click="showInterface = ! showInterface"><span class="typing"></span></h1>
 						</vue-typed-js>
 						<hr>
-						<div class="links-list-wrapper">
+						<div class="links-list-wrapper" v-if="showInterface">
 							<div class="links-list">
 								<div v-for="link in links" class="link-wrapper">
 									<a class="link" v-if="! link.editing" :href="linkGetInfo(link.content).href">
@@ -69,7 +69,7 @@
 						</div>
 					</div>
 				</div>
-				<div class="footer">
+				<div class="footer" v-if="showInterface">
 					<div class="player-controls shadow">
 						<img
 							class="play-button"

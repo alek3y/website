@@ -40,6 +40,10 @@ let app = new Vue({
 		if(linksStored) {
 			this.links = JSON.parse(linksStored);
 		}
+
+		this.links.forEach(function(link) {
+			link.editing = false;
+		});
 	},
 
 	timers: {

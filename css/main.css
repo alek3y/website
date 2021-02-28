@@ -73,11 +73,12 @@ a {
 	filter: var(--shadow);
 }
 
-/* Loading text */
-
-.bg-loading {
+.view {
 	background-color: var(--loading-background);
+	overflow: hidden;
 }
+
+/* Loading text */
 
 .bg-loading_text {
 	position: fixed;

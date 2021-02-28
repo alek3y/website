@@ -34,9 +34,9 @@ html {
 	--slider-thumb-size: 20px;
 	--title-font: Comfortaa;
 	--title-font-size: 2.2em;
-	--title-width: 330px;
 	--title-side-margin: 25px;
-	--board-right-offset: 20px;
+	--board-width: 400px;
+	--board-margin-horizontal: 20px;
 	--link-margin-vertical: 5px;
 	--link-edit-margin-horizontal: 5px;
 	--link-font: Comfortaa;
@@ -134,8 +134,10 @@ a {
 .board {
 	display: flex;
 	flex-flow: column;
-	margin-right: var(--board-right-offset);
+	margin: 0px var(--board-margin-horizontal);
 	height: 100%;
+	max-width: var(--board-width);
+	width: 100%;
 }
 
 /* Sliders and volume slider */
@@ -185,7 +187,7 @@ input[type="range"]::-webkit-slider-thumb {
 	font-size: var(--title-font-size);
 	font-family: var(--title-font);
 	color: var(--primary-color);
-	width: var(--title-width);
+	width: 100%;
 	white-space: nowrap;
 	overflow: hidden;
 	cursor: pointer;

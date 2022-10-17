@@ -3,7 +3,7 @@ let app = new Vue({
 
 	data: {
 		music: {
-			video: "l7TxwBhtTUY",
+			video: "bLlloaA4b4g",
 			volume: "30",
 			playing: 0
 		},
